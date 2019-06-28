@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace WebApiCore2Swagger4
 {
@@ -20,6 +21,10 @@ namespace WebApiCore2Swagger4
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(s => {
+                s.SwaggerDoc("v1", new Info {Title = "MyApi", Version="1"});
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +42,8 @@ namespace WebApiCore2Swagger4
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            //https://localhost:7003/swagger/v1/swagger.json
+            app.UseSwagger();
         }
     }
 }

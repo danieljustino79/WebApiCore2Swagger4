@@ -1,7 +1,5 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApiCore2Swagger4.Controllers
@@ -14,7 +12,7 @@ namespace WebApiCore2Swagger4.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "webapi", "swagger" };
+            return new string[] { "webapi", "swagger4" };
         }
 
         // GET api/values/5
